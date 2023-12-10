@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title> Appointment Report </title>
+    <link href="{%static 'css/style.css'%}" rel="stylesheet">
+</head>
+<body>
+<h2> APPOINTMENT REPORT </h2>
+<div align="center">
+<table border="2" >
+    <thead align="center">
+    <td>Patient ID</td>
+    <td>Patient Name</td>
+    <td>Patient Type</td>
+    <td>Illiness</td>
+    <td>Patient Address</td>
+    <td>Patient Contact</td>
+    <td>Actions</td>
+    </thead>
+{% for s in patients %}
+    <tr>
+        <td>{{s.id}}</td>
+        <td>{{s.name}}</td>
+        <td>{{s.type}}</td>
+        <td>{{s.illiness}}</td>
+        <td>{{s.address}}</td>
+        <td> {{s.contact}}</td>
+         <td>
+             <a href="/ad/update/{{s.id}}" ><button type="button" >Update</button></a>
+             <a href="/ad/delete/{{s.id}}" ><button type="button" >Delete</button></a>
+         </td>
+    </tr>
+{%endfor%}
+</table><br>
+<a href="/ad/add"><button type="button" name="button">Add Appointment</button></a>
+</div>
+</body>
+</html>

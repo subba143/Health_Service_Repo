@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Doctor Confirmation </title>
+    <link href="{%static 'css/style.css'%}" rel="stylesheet">
+</head>
+<body>
+<form method="post">
+    <h3>You want to delete this doctor</h3>
+    <button type="submit" value="delete">Delete</button>
+    {% csrf_token %}
+    </form>
+    <a href="/ad/doctorlist/"><button type="submit" value="cancle">cancle</button></a>
+</body>
+</html>
