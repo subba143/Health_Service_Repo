@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Appointment</title>
+    <link href="{%static 'css/style.css'%}" rel="stylesheet">
+</head>
+<body>
+<div align="center">
+<h1>UPDATE APPOINTMENT</h1>
+<h3>Please Update The Form</h3>
+<form method="post">
+    <table>
+        {{form.as_table}}
+    </table>
+    <input type="submit" value="UPDATE">
+    {% csrf_token %}
+</form>
+</div>
+</body>
+</html>

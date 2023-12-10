@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctors List</title>
+    <link href="{%static 'css/style.css'%}" rel="stylesheet">
+</head>
+<body>
+<h2>DOCTORS LIST</h2>
+<div align="center">
+<table border="2">
+    <thead align="center">
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Designation</td>
+        <td>specialist</td>
+        <td>Contact</td>
+        <td>Actions</td>
+    </tr>
+    </thead>
+    {% for d in doctor_list %}
+    <tr>
+          <td><a href="/ad/doctordetails/{{d.id}}"> {{d.id}}</a></td>
+          <td>{{d.name}}</td>
+          <td>{{d.designation}}</td>
+          <td>{{d.specialist}}</td>
+          <td>{{d.contact}}</td>
+        <td>
+            <a href="/ad/updatedoctor/{{d.id}}" ><button type="button">Update</button></a>
+            <a href="/ad/deletedoctor/{{d.id}}"> <button type="button">Delete</button></a>
+        </td>
+    </tr>
+    {%endfor%}
+</table><br>
+<a href="/ad/adddoctor"><button type="button" name="button">Add Doctor</button></a>
+</div>
+</body>
+</html>

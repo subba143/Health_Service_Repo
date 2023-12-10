@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="eng" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link href="{% static 'css/style.css' %}"rel="stylesheet">
+</head>
+<body>
+<h2><img src="{% static 'images/hospital3.jpg' %}"> HOSPITAL </h2>
+<div class="module">
+    <h1> APPOINTMENTS </h1><br>
+    <a href="/ad/add"><button type="button" name="button">Add Appointment</button></a><br><br>
+    <a href="/ad/report"><button type="button" name="button">Appointments Report</button></a><br><br>
+</div>
+
+<div class="module">
+    <h1> DOCTORS </h1><br>
+    <a href="/ad/adddoctor"><button type="button" name="button">Add Doctor</button></a><br><br>
+    <a href="/ad/doctorlist"><button type="button" name="button">Doctors List</button></a><br><br>
+</div>
+</body>
+</html>
