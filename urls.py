@@ -1,18 +1,29 @@
+"""
+URL configuration for Health_Care project.
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/4.2/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
 from django.urls import path
-from .views import Add_Appointment, Appointment_Report, NewVendor, Update_Patient, Delete_Patient
-from .views import ClassBasedView, DoctorsList, DoctorDetail, AddDoctor, UpdateDoctor, DeleteDoctor
+from django.conf.urls import include
+from CareApp import views
 
 urlpatterns = [
-    path('add/', Add_Appointment),
-    path('report/', Appointment_Report),
-    path('update/<int:id>', Update_Patient),
-    path('delete/<int:id>', Delete_Patient),
-    path('vendor/', NewVendor),
-    path('cbv/', ClassBasedView.as_view()),
-    path('doctorlist/', DoctorsList.as_view(), name='doctorlist'),
-    path('doctordetails/<int:pk>', DoctorDetail.as_view()),
-    path('adddoctor/', AddDoctor.as_view(), name='adddoctor'),
-    path('updatedoctor/<int:pk>', UpdateDoctor.as_view()),
-    path('deletedoctor/<int:pk>', DeleteDoctor.as_view()),
+    path('admin/', admin.site.urls),
+    path('', views.HomePage),
+    path('userlogout/', views.logoutuser),
+    path('ad/', include('CareApp.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 
 ]
